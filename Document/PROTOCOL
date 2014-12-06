@@ -1,0 +1,37 @@
+1. acquire a file id
+POST /files
+Headers:
+Upload-File-Size: ????
+
+200 OK
+{
+	"file_id": "XXXXX",
+	"file_size": ????
+}
+
+
+2. get file info
+GET /file/XXXXX
+
+200 OK
+{
+	"file_id": "XXXXX",
+	"file_size": ????,
+	"file_current_size": !!!!
+}
+
+
+3. upload file data
+PUT /file/XXXXX
+Headers:
+Upload-File-Range: nnnnn-mmmmm    NOTE: not support this header currently
+Body:
+(data from nnnnn included to mmmmm excluded, total size is mmmmm - nnnnn)
+
+200 OK
+{
+	"file_id": "XXXXX",
+	"file_size": ????,
+	"file_current_size": !!!!
+}
+
